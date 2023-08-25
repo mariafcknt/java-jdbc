@@ -1,0 +1,55 @@
+create schema meu_banco;
+
+#Apagar linha 1 após a criação do banco
+
+use meu_banco;
+
+create table if not exists pessoa (id_pessoa integer primary key auto_increment
+    ,nome varchar(250)
+    ,sobrenome varchar(250)
+    ,data_hora_nascimento datetime
+    ,altura numeric
+    ,ativo boolean)
+
+insert into pessoa(nome, sobrenome, data_hora_nascimento, altura, ativo)
+values('Tom','Cruise',now(),1.87,true);
+insert into pessoa(nome, sobrenome, data_hora_nascimento, altura, ativo)
+values('Tom','Hanks',now(),1.87,true);
+insert into pessoa(nome, sobrenome, data_hora_nascimento, altura, ativo)
+values('Tom','Bradly',now(),1.87,true);
+insert into pessoa(nome, sobrenome, data_hora_nascimento, altura, ativo)
+values('Tom','Holand',now(),1.87,true);
+insert into pessoa(nome, sobrenome, data_hora_nascimento, altura, ativo)
+values('Jack','Chan',now(),1.87,true);
+insert into pessoa(nome, sobrenome, data_hora_nascimento, altura, ativo)
+values('Vin','Diesel',now(),1.87,true);
+
+#Adicionar uma procedure por vez
+
+USE meu_banco;
+DELIMITER \\
+create procedure  ler_nomes_que_inicia_com_t()
+    begin
+        select nome, sobrenome from pessoa where nome like 't%';
+    end;
+
+USE meu_banco;
+DELIMITER \\
+create procedure  ler_nomes_que_inicia_com_a_letra(in letra  varchar(1))
+begin
+    select nome, sobrenome from pessoa where nome like concat(letra,'%');
+end;
+
+USE meu_banco;
+DELIMITER \\
+create procedure  obter_numero_aleatorio(out numero  INT)
+begin
+    select 42 into numero;
+end;
+
+USE meu_banco;
+DELIMITER \\
+create procedure  numero_ao_quadrado(inout numero  INT)
+begin
+    select numero * 2 into numero;
+end;
