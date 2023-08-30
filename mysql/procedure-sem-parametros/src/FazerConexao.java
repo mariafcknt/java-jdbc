@@ -8,7 +8,8 @@ public class FazerConexao {
     private static final String url = "jdbc:mysql://localhost:3306/meu_banco";
 
     public static Connection conectar() throws SQLException {
-        Connection con = DriverManager.getConnection(url, "root", "root");
-
+        //Conexão com o banco de dados MySQL
+        Connection con = DriverManager.getConnection(url, "root", "root"); //usuário e senha do banco de dados
+        return con;
     }
 }
