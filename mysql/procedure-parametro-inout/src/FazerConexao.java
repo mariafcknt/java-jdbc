@@ -5,10 +5,10 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class FazerConexao {
-    private static final String url = "jdbc:mysql://localhost:3306/meu_banco";
+    private static final String url = "jdbc:mysql://localhost:3306/meu_banco"; //url de conexão com o banco de dados
 
     public static Connection conectar() throws SQLException {
-        Connection con = DriverManager.getConnection(url, "root", "root");
+        Connection con = DriverManager.getConnection(url, "root", "root"); //usuário e senha
         return con;
     }
 }
