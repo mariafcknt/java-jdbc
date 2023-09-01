@@ -49,7 +49,7 @@ end;
 
 USE meu_banco;
 DELIMITER \\
-create procedure  numero_ao_quadrado(inout numero  INT)
-begin
-    select numero * 2 into numero;
-end;
+CREATE PROCEDURE numero_ao_quadrado(INOUT numero INT)
+BEGIN
+    SET numero = numero * numero;
+END;
